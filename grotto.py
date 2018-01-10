@@ -3,11 +3,11 @@ import turtle
 wn=turtle.Screen()
 wn.bgcolor("lightblue")
 grotto=turtle.Turtle()
-
+obstacle = (0,100)
 
 def moveForward():
     grotto.forward(50)
-    if round(grotto.xcor(),0) == obstacle[0] and round(tess.ycor(),0) == obstacle[1]:
+    if round(grotto.xcor(),0) == obstacle[0] and round(grotto.ycor(),0) == obstacle[1]:
         print("crash")
         grotto.write("Crash!")
 def turnLeft():
