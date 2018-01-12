@@ -14,6 +14,7 @@ When the turtle hits an obstacle it should say crash
 When I click the up arrow the turtle should move forward
 When I click the left or right arrows, it should rotate in that direction
 
+
 REFLECTIONS AND REVISIONS
 Instead of making a game where the ball jumps, I want to make more of a maze game. I can use another turtle to stamp onto the coordinates of the obstacles, and when the turtle hits it it should say crash
 
