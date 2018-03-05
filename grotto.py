@@ -7,7 +7,7 @@ import pygame
 #maze=turtle.Turtle()
 
 class mazerunner(pygame.sprite.Sprite):
-    
+
 
 
 
