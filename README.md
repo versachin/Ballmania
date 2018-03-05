@@ -19,5 +19,5 @@ REFLECTIONS AND REVISIONS
 Instead of making a game where the ball jumps, I want to make more of a maze game. I can use another turtle to stamp onto the coordinates of the obstacles, and when the turtle hits it it should say crash
 
 NEXT STEPS
-I want to use the turtle to make a maze. This way I can easily create obstacles. Once I create obstacles maybe I can add a way to score points, and more levels. Now that I have learned pygame, I can add a way to really keep score, and to detect collisions.
+I want to use the turtle to make a maze. This way I can easily create obstacles. Once I create obstacles maybe I can add a way to score points, and more levels. Now that I have learned pygame, I can add a way to really keep score, and to detect collisions. However the first thing I want to do is to make the thing going through the maze into an entity, and add a picture for it.
 
