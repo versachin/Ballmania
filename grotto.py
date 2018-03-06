@@ -1,12 +1,33 @@
 #import turtle
 import pygame
 
+pygame.init()
+
+gameDisplay = pygame.display.set_mode((800,600))
+pygame.display.set_caption('MAZERUNNER')
+clock = pygame.time.Clock()
+
+crashed = False
+
+while not crashed:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            crashed = True
+
+        print(event)
+
+    pygame.display.update()
+    clock.tick(60)
+pygame.quit()
+quit()
+
 #wn=turtle.Screen()
 #wn.bgcolor("lightblue")
 #grotto=turtle.Turtle()
 #maze=turtle.Turtle()
 
-main_dir = os.path.split(os.path.abspath(__file__))[0]
+"""main_dir = os.path.split(os.path.abspath(__file__))[0]
 
 def load_image(file):
     "loads an image, prepares it for play"
@@ -46,7 +67,7 @@ class mazerunner(pygame.sprite.Sprite):
 
     def gunpos(self):
         pos = self.facing*self.gun_offset + self.rect.centerx
-        return pos, self.rect.top
+        return pos, self.rect.top"""
 
 
 
