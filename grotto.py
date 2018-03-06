@@ -6,7 +6,49 @@ import pygame
 #grotto=turtle.Turtle()
 #maze=turtle.Turtle()
 
+main_dir = os.path.split(os.path.abspath(__file__))[0]
+
+def load_image(file):
+    "loads an image, prepares it for play"
+    file = os.path.join(main_dir, 'data', file)
+    try:
+        surface = pygame.image.load(file)
+    except pygame.error:
+        raise SystemExit('Could not load image "%s" %s'%(file, pygame.get_error()))
+    return surface.convert()
+
+def load_images(*files):
+    imgs = []
+    for file in files:
+        imgs.append(load_image(file))
+    return imgs
+
 class mazerunner(pygame.sprite.Sprite):
+    speed = 10
+    images = []
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self, self.containers)
+        self.image = self.images[0]
+        self.rect = self.image.get_rect(midbottom=SCREENRECT.midbottom)
+        self.reloading = 0
+        self.origtop = self.rect.top
+        self.facing = -1
+
+    def move(self, direction):
+        if direction: self.facing = direction
+        self.rect.move_ip(direction*self.speed, 0)
+        self.rect = self.rect.clamp(SCREENRECT)
+        if direction < 0:
+            self.image = self.images[0]
+        elif direction > 0:
+            self.image = self.images[1]
+        self.rect.top = self.origtop - (self.rect.left//self.bounce%2)
+
+    def gunpos(self):
+        pos = self.facing*self.gun_offset + self.rect.centerx
+        return pos, self.rect.top
+
+
 
 
 
