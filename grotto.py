@@ -19,8 +19,8 @@ while not crashed:
             crashed = True
 
         print(event)
-
-    pygame.display.update()
+    gameDisplay.blit(player, playerrect)
+    pygame.display.flip()
     clock.tick(60)
 pygame.quit()
 quit()
