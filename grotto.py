@@ -7,6 +7,9 @@ gameDisplay = pygame.display.set_mode((800,600))
 pygame.display.set_caption('MAZERUNNER')
 clock = pygame.time.Clock()
 
+player = pygame.image.load("ball.gif")
+playerrect = player.get_rect()
+
 crashed = False
 
 while not crashed:
