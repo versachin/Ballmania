@@ -27,22 +27,25 @@ while not crashed:
         if event.key == pygame.K_LEFT:
             x_change = -5
             pygame.display.update()
+            gameDisplay.blit(player, playerrect)
         if event.key == pygame.K_RIGHT:
             x_change = 5
             pygame.display.update()
+            gameDisplay.blit(player, playerrect)
         if event.key == pygame.K_p:
             paused = True
             pause()
             pygame.display.update()
+            gameDisplay.blit(player, playerrect)
 
 
     if event.type == pygame.KEYUP:
         if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
             x_change = 0
-        pygame.display.update()
 
-x += x_change
-gameDisplay.fill(white)
+
+#x += x_change
+#gameDisplay.fill(white)
 
 
 pygame.quit()
