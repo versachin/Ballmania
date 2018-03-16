@@ -23,6 +23,22 @@ while not crashed:
     pygame.display.update()
     clock.tick(60)
 
+
+    def game_loop():
+        global paused
+
+       x = (display_width * 0.45)
+        y = (display_height * 0.8)
+
+        x_change = 0
+
+
+
+
+
+
+
+
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
             x_change = -5
