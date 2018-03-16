@@ -12,19 +12,42 @@ playerrect = player.get_rect()
 
 crashed = False
 
+
 while not crashed:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             crashed = True
-
         print(event)
     gameDisplay.blit(player, playerrect)
-    pygame.display.flip()
+    pygame.display.update()
     clock.tick(60)
+
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT:
+            x_change = -5
+        if event.key == pygame.K_RIGHT:
+            x_change = 5
+        if event.key == pygame.K_p:
+            paused = True
+            pause()
+
+    if event.type == pygame.KEYUP:
+        if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+            x_change = 0
+
+x += x_change
+gameDisplay.fill(white)
+
+
 pygame.quit()
 quit()
 
+
+
+
+x += x_change
+gameDisplay.fill(white)
 #wn=turtle.Screen()
 #wn.bgcolor("lightblue")
 #grotto=turtle.Turtle()

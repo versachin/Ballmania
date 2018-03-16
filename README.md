@@ -22,7 +22,7 @@ NEXT STEPS
 I want to use the turtle to make a maze. This way I can easily create obstacles. 
 
 NEW BIG PICTURE
-Now that I have pygame, I want to make a similar game to the last, however, now that I can detect collisions with obstacles, I am not limited to a maze. Their can be just random things everywhere that the ball has to dodge. Of course the basic game will be the same, but there will be so many more things to dodge. Also, I can add many different levels, buttons, music, a background, and more.
+Now that I have pygame, I want to make a similar game to the last, however, now that I can detect collisions with obstacles, I am not limited to a maze. There can be just random things everywhere that the ball has to dodge. Of course the basic game will be the same, but there will be so many more things to dodge. Also, I can add many different levels, buttons, music, a background, and more.
 
 
 
