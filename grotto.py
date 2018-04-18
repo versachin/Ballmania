@@ -1,5 +1,6 @@
 #import turtle
 import pygame
+from pygame.locals import *
 
 pygame.init()
 white = (0, 200, 200)
@@ -8,6 +9,7 @@ display_height = 600
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('MAZERUNNER')
 clock = pygame.time.Clock()
+SCREENRECT     = Rect(0, 0, 640, 480)
 
 player = pygame.image.load("ball.gif")
 playerrect = player.get_rect()
@@ -51,6 +53,8 @@ class Player(pygame.sprite.Sprite):
             self.image = self.images[1]
         self.rect.top = self.origtop - (self.rect.left // self.bounce % 2)
 
+class maze(pygame.sprite.Sprite):
+
 
 def move_ball(x, y):
     gameDisplay.blit(player, (x, y))
@@ -67,6 +71,78 @@ def game_loop():
 
     x_change = 0
     y_change = 0
+
+    def main(winstyle=0):
+        # Initialize pygame
+        """pygame.init()
+        if pygame.mixer and not pygame.mixer.get_init():
+            print('Warning, no sound')
+            pygame.mixer = None"""
+
+        # Set the display mode
+        winstyle = 0  # |FULLSCREEN
+        bestdepth = pygame.display.mode_ok(SCREENRECT.size, winstyle, 32)
+        screen = pygame.display.set_mode(SCREENRECT.size, winstyle, bestdepth)
+
+        # Load images, assign to sprite classes
+        # (do this before the classes are used, after screen setup)
+        img = load_image('ball.gif')
+        Player.images = [img, pygame.transform.flip(img, 1, 0)]
+        #img = load_image('explosion1.gif')
+        #Explosion.images = [img, pygame.transform.flip(img, 1, 1)]
+        #Alien.images = load_images('alien1.gif', 'alien2.gif', 'alien3.gif')
+        #Bomb.images = [load_image('bomb.gif')]
+        #Shot.images = [load_image('shot.gif')]
+
+        # decorate the game window
+        #icon = pygame.transform.scale(Alien.images[0], (32, 32))
+        #pygame.display.set_icon(icon)
+        #pygame.display.set_caption('Pygame Aliens')
+        #pygame.mouse.set_visible(0)
+
+        # create the background, tile the bgd image
+        bgdtile = load_image('background.gif')
+        background = pygame.Surface(SCREENRECT.size)
+        for x in range(0, SCREENRECT.width, bgdtile.get_width()):
+            background.blit(bgdtile, (x, 0))
+        screen.blit(background, (0, 0))
+        pygame.display.flip()
+
+        # load the sound effects
+        #boom_sound = load_sound('boom.wav')
+        #shoot_sound = load_sound('car_door.wav')
+        #if pygame.mixer:
+            #music = os.path.join(main_dir, 'data', 'house_lo.wav')
+            #pygame.mixer.music.load(music)
+            #pygame.mixer.music.play(-1)
+
+        # Initialize Game Groups
+        #aliens = pygame.sprite.Group()
+        #shots = pygame.sprite.Group()
+        #bombs = pygame.sprite.Group()
+        #all = pygame.sprite.RenderUpdates()
+        #lastalien = pygame.sprite.GroupSingle()
+
+        # assign default groups to each sprite class
+        Player.containers = all
+        #Alien.containers = aliens, all, lastalien
+        #Shot.containers = shots, all
+        #Bomb.containers = bombs, all
+        #Explosion.containers = all
+        #Score.containers = all
+
+        # Create Some Starting Values
+        global score
+        #alienreload = ALIEN_RELOAD
+        #kills = 0
+        clock = pygame.time.Clock()
+
+        # initialize our starting sprites
+        global SCORE
+        player = Player()
+        Alien()  # note, this 'lives' because it goes into a sprite group
+        if pygame.font:
+            all.add(Score())
 
     while not crashed:
 
