@@ -56,8 +56,8 @@ class Player(pygame.sprite.Sprite):
 class maze(pygame.sprite.Sprite):
 
 
-def move_ball(x, y):
-    gameDisplay.blit(player, (x, y))
+    def move_ball(x, y):
+        gameDisplay.blit(player, (x, y))
 
 
 
@@ -183,7 +183,7 @@ def game_loop():
         x += x_change
         y += y_change
         gameDisplay.fill(white)
-        move_ball(x,y)
+        maze.move_ball(x,y)
         pygame.display.update()
         clock.tick(60)
 
