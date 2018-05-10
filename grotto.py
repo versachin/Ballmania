@@ -30,7 +30,8 @@ def load_images(*files):
     for file in files:
         imgs.append(load_image(file))
     return imgs
-
+class maze(pygame.sprite.Sprite):
+    
 class Player(pygame.sprite.Sprite):
     speed = 10
     bounce = 24
