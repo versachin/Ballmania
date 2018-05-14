@@ -18,7 +18,7 @@ crashed = False
 
 def load_image(file):
     "loads an image, prepares it for play"
-    file = os.path.join(main_dir, 'data', file)
+    #file = os.path.join(main_dir, 'data', file)
     try:
         surface = pygame.image.load(file)
     except pygame.error:
@@ -31,7 +31,13 @@ def load_images(*files):
         imgs.append(load_image(file))
     return imgs
 class maze(pygame.sprite.Sprite):
-    
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self, self.containers)
+        self.image = self.images[0]
+        self.rect = self.image.get_rect(midbottom=SCREENRECT.midbottom)
+        self.reloading = 0
+        self.origtop = self.rect.top
+        self.facing = -1
 class Player(pygame.sprite.Sprite):
     speed = 10
     bounce = 24
